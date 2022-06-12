@@ -18,6 +18,8 @@
       Demonstrates implementing Action and Action Group patterns.<br> Adds entries to the Tools menu.
     ]]>
   </description>
+
+  <!-- 变更说明 -->
   <change-notes>
     <![CDATA[
       <ul>
@@ -29,9 +31,11 @@
   </change-notes>
 
   <!-- Text to display as company information on Preferences/Settings | Plugin page -->
-  <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK</vendor>
+  <!-- 插件开发者名称 -->
+  <vendor url="https://plugins.jetbrains.com">IntelliJ Platform SDK qi company</vendor>
 
   <!-- Declare the default resource location for localizing menu strings -->
+  <!-- 貌似是用来指定国际化翻译的文件 -->
   <resource-bundle>messages.BasicActionsBundle</resource-bundle>
 
   <actions>
@@ -46,6 +50,9 @@
       for this action's entries in the MainMenu. (Which includes the ToolsMenu. Try commenting out the override-text
       element and see how the menu text changes.) The alternate text and description attributes do not
       appear here because they are defined by action-id in the resource-bundle.
+
+      qz,这里text里的前半部分"Action Basics Plugin:" 在菜单里没有显示,why?
+        这里加了快捷键ctrl+alt+A C
     -->
     <action id="org.intellij.sdk.action.PopupDialogAction" class="org.intellij.sdk.action.PopupDialogAction"
             text="Action Basics Plugin: Pop Dialog Action" description="SDK action example"
@@ -64,6 +71,8 @@
       PopupDialogAction in the Tools menu. Because the group's implementation is default, it cannot impose
       enable/disable conditions. Instead it must rely on the conditions imposed by the parent menu where it is inserted.
       It declares one action in the group.
+
+      qz,组和子项都有text属性
     -->
     <group id="org.intellij.sdk.action.GroupedActions"
            text="Static Grouped Actions" description="SDK statically grouped action example"
@@ -79,6 +88,11 @@
       plugin. This group is to be inserted atop the Editor Popup Menu. It declares one action in the group.
       The group and action implementations are internationalized, so their declarations do not use the text or
       description attributes. Instead, the information is defined in the BasicActionsBundle.
+
+      qz,注意,这里group-id="EditorPopupMenu" 表示编辑器弹出菜单
+         在下面的文件中,为下面的group和action指定了text和description
+        action_basics/src/main/resources/messages/BasicActionsBundle.properties
+        子动作class为弹出消息框
     -->
     <group id="org.intellij.sdk.action.CustomDefaultActionGroup"
            class="org.intellij.sdk.action.CustomDefaultActionGroup"
@@ -90,6 +104,8 @@
     <!--
       DynamicActionGroup demonstrates declaring an action group without a static action declaration.
       An action is added to the group programmatically in the DynamicActionGroup implementation.
+
+      qz,anchor="after" => 放在某个动作之后
     -->
     <group id="org.intellij.sdk.action.DynamicActionGroup" class="org.intellij.sdk.action.DynamicActionGroup"
            popup="true" text="Dynamically Grouped Actions" description="SDK dynamically grouped action example"

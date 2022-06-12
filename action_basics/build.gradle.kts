@@ -6,6 +6,7 @@ plugins {
 }
 
 group = "org.intellij.sdk"
+//qz,插件版本
 version = "2.0.0"
 
 repositories {

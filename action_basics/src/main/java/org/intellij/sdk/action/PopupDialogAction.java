@@ -18,6 +18,8 @@ import javax.swing.*;
  * The only action this class performs is to provide the user with a popup dialog as feedback.
  * Typically this class is instantiated by the IntelliJ Platform framework based on declarations
  * in the plugin.xml file. But when added at runtime this class is instantiated by an action group.
+ *
+ * qz,弹出一个消息框
  */
 public class PopupDialogAction extends AnAction {
 
@@ -49,6 +51,7 @@ public class PopupDialogAction extends AnAction {
    * Pops a simple message dialog. See the psi_demo plugin for an
    * example of how to use {@link AnActionEvent} to access data.
    *
+   * qz,点击之后执行的动作,弹出一个消息框,
    * @param event Event received when the associated menu item is chosen.
    */
   @Override

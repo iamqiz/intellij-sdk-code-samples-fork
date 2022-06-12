@@ -24,6 +24,8 @@ public class DynamicActionGroup extends ActionGroup {
    * @param e Event received when the associated group-id menu is chosen.
    * @return AnAction[] An instance of {@link AnAction}, in this case containing a single instance of the
    * {@link PopupDialogAction} class.
+   *
+   * qz,子菜单里动态创建一个动作,该动作为弹出消息框
    */
   @Override
   public AnAction @NotNull [] getChildren(AnActionEvent e) {
